@@ -1,0 +1,7 @@
+from flask import Flask
+app = flask.Flask(__name__)
+
+def name():
+	return "Hello World"
+	
+app.run()
