@@ -187,7 +187,7 @@ Each of these should return a different entry, except for the last, which should
 
 - Before we modify our code, first download the example database(books.db) and copy the file to your api folder using your graphical user interface. The final version of our API will query this database when returning results to users.
 
-- Copy the below code into your text editor. As before, we’ll examine the code more closely once you have it running:
+- Copy the below code into your text editor:
 
 import flask
 from flask import request, jsonify
