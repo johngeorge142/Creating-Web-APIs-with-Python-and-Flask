@@ -13,7 +13,7 @@
 
 
 ## General Information
-- This project aims to create an API that allows users to not only access a database but find specific resources within the database. The test catalog organizes information by ID, matches the books that have the provided ID and appends the list that wil be returned to the user. 
+- This project aims to create an API that allows users to not only access a database but find specific resources within the database. The test catalog organizes information by ID, matches the books that have the provided ID and appends the list that will be returned to the user. 
 - Finally we connect our API to our database and store the results from the API into a SQLite3 database. When our user requests an entry, our API provides that information from the database by creating and performing an SQL query. 
 
 
