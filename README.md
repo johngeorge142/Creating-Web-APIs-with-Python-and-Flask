@@ -46,6 +46,7 @@ md api
 
 Next, open a text editor (such as Notepad++ or BBEdit) and enter the following code:
 
+```
 import flask
 
 app = flask.Flask(__name__)
@@ -57,6 +58,7 @@ def home():
     return "<'h1'>Distant Reading Archive<'/h1'><'p'>This site is a prototype API for distant reading of science fiction novels.<'/p'>"
 
 app.run()
+```
 
 - Save this code as api.py in the api folder you created for this tutorial.
 - Navigate to cd projects/api
@@ -67,7 +69,7 @@ app.run()
 # Creating the API
 
 Replace our previous code in api.py with the code below:
-
+```
 import flask
 from flask import request, jsonify
 
@@ -106,6 +108,7 @@ def api_all():
     return jsonify(books)
 
 app.run()
+```
 
 Run the code (navigate to your api folder in the command line and enter python api.py). Once the server is running, visit our route URL to view the data in the catalog:
 
@@ -114,7 +117,7 @@ http://127.0.0.1:5000/api/v1/resources/books/all
 # Finding Specific Resources
 
 - In this section we will add a function that allows users to filter their returned results using a more specific request. 
-
+```
 import flask
 from flask import request, jsonify
 
@@ -174,7 +177,7 @@ def api_id():
    return jsonify(results)
 
 app.run()
-
+```
 Once you’ve updated your API with the api_id function, run your code as before (python api.py from your api directory) and visit the below URLs to test the new filtering capability:
 
 127.0.0.1:5000/api/v1/resources/books?id=0 127.0.0.1:5000/api/v1/resources/books?id=1 127.0.0.1:5000/api/v1/resources/books?id=2 127.0.0.1:5000/api/v1/resources/books?id=3
@@ -188,7 +191,7 @@ Each of these should return a different entry, except for the last, which should
 - Before we modify our code, first download the example database(books.db) and copy the file to your api folder using your graphical user interface. The final version of our API will query this database when returning results to users.
 
 - Copy the below code into your text editor:
-
+```
 import flask
 from flask import request, jsonify
 import sqlite3
@@ -225,7 +228,7 @@ def page_not_found(e):
     return "<'h1'>404<'/h1'><p>The resource could not be found.<'/p'>", 404
 
 @app.route('/api/v1/resources/books', methods=['GET'])
-# def api_filter():
+ def api_filter():
         query_parameters = request.args
 
         id = query_parameters.get('id')
@@ -258,7 +261,7 @@ def page_not_found(e):
         return jsonify(results)
 
     app.run()
-
+```
 - Save the code as api_final.py in your api folder and run it by navigating to your project folder in the terminal and entering the command:
 
 python api_final2.py
